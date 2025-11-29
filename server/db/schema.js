@@ -1,11 +1,11 @@
-import { pgTable, serial, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, serial, text, varchar, timestamp } from "drizzle-orm/pg-core";
 
 export const tasks = pgTable("tasks", {
   id: serial("id").primaryKey(),
   url: text("url").notNull(),
   question: text("question").notNull(),
-  status: text("status").notNull().default("pending"),
+  status: varchar("status", { length: 20 }).default("pending"),
   answer: text("answer"),
-  created_at: timestamp("created_at").defaultNow(),
-  updated_at: timestamp("updated_at").defaultNow(),
+  createdAt: timestamp("created_at").defaultNow(),
+  updatedAt: timestamp("updated_at").defaultNow(),
 });

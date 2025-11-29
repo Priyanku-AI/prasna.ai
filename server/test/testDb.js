@@ -9,16 +9,17 @@ const __dirname = path.dirname(__filename);
 // Load .env from the parent directory
 dotenv.config({ path: path.join(__dirname, "..", ".env") });
 
-import { Pool } from "pg";
-// import { drizzle } from "drizzle-orm/postgres-js";
-import { drizzle } from "drizzle-orm/node-postgres";
+import pkg from 'pg';
+const { Client } = pkg;
 
-const pool = new Pool({
+const client = new Client({
   host: process.env.POSTGRES_HOST,
-  port: 5432,
-  database: process.env.POSTGRES_DB,
+  port: Number(process.env.POSTGRES_PORT),
   user: process.env.POSTGRES_USER,
   password: process.env.POSTGRES_PASSWORD,
+  database: process.env.POSTGRES_DB,
 });
 
-export const db = drizzle(pool);
+await client.connect(); // should succeed
+console.log('Connected!');
+await client.end();
