@@ -7,7 +7,7 @@ console.log("the env in instance.js", process.env.REDIS_PORT, process.env.REDIS_
 export const connection = new IORedis({
   host: process.env.REDIS_HOST,
   port: process.env.REDIS_PORT,
-  maxRetriesPerRequest: null,   // Required for BullMQ
+  maxRetriesPerRequest: null,   // BullMQ handles reconnections and retries at the queue level
 });
 
 // Create BullMQ queue named "tasks"
