@@ -216,7 +216,7 @@ export default function HomePage() {
 
             <textarea
               name="question"
-              placeholder="What are the key features of this website?"
+              placeholder="Example: What are the key features of this website?"
               required
               rows={4}
               style={{
