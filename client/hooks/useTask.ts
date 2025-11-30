@@ -17,6 +17,7 @@ export const useTask = () => {
     queryKey: ['task', taskId],
     queryFn: () => getTaskStatus(taskId as string),
     enabled: !!taskId,
+    refetchOnWindowFocus: false, // Prevent refetching when window regains focus
     refetchInterval: (query) => {
       // Stop polling if the task is completed
       return query.state.data?.status === 'completed' ? false : 2000;
