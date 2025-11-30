@@ -1,6 +1,4 @@
-
-
- Praśna.AI is a full-stack application where users submit a **website URL and a question**.  
+Praśna.AI is a full-stack application where users submit a **website URL and a question**.  
 The system scrapes the website, processes the data through an **AI model** in a background job, and returns the final answer once completed.
 
 ---
