@@ -116,102 +116,32 @@ export default function HomePage() {
   };
 
   return (
-    <div style={{
-      minHeight: '100vh',
-      backgroundColor: '#000000',
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      padding: '20px',
-      position: 'relative',
-      overflow: 'hidden',
-      fontFamily: '"Inter", -apple-system, BlinkMacSystemFont, sans-serif'
-    }}>
+    <div className="min-h-screen bg-black flex flex-col items-center justify-center p-5 relative overflow-hidden font-['Inter']">
       <Particles />
 
       {/* Glass Card */}
-      <div style={{
-        background: 'rgba(15, 15, 35, 0.25)',
-        backdropFilter: 'blur(20px)',
-        WebkitBackdropFilter: 'blur(20px)',
-        borderRadius: '24px',
-        border: '1px solid rgba(255, 255, 255, 0.1)',
-        boxShadow: '0 8px 32px 0 rgba(0, 0, 0, 0.36)',
-        padding: '40px',
-        maxWidth: '600px',
-        width: '100%',
-        position: 'relative',
-        overflow: 'hidden',
-        zIndex: 1,
-        boxSizing: 'border-box',
-        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.25)',
-      }}>
+      <div className="bg-[rgba(15,15,35,0.25)] backdrop-blur-xl rounded-3xl border border-white/10 shadow-2xl p-10 max-w-[600px] w-full relative overflow-hidden z-10 box-border">
         {/* Inner glow effect */}
-        <div style={{
-          position: 'absolute',
-          top: 0,
-          left: 0,
-          right: 0,
-          bottom: 0,
-          borderRadius: '24px',
-          padding: '1px',
-          background: 'linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%)',
-          WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)',
-          WebkitMaskComposite: 'xor',
-          pointerEvents: 'none',
-          zIndex: -1
-        }} />
+        <div 
+          className="absolute inset-0 rounded-3xl p-[1px] bg-gradient-to-br from-white/10 to-white/5 -z-10 pointer-events-none"
+          style={{ WebkitMask: 'linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0)', WebkitMaskComposite: 'xor' }}
+        />
 
-        <h1 style={{
-          color: 'white',
-          fontSize: '2.5rem',
-          fontWeight: 700,
-          marginBottom: '8px',
-          textAlign: 'center',
-          textShadow: '0 0 10px rgba(168, 85, 247, 0.5)',
-          letterSpacing: '-0.5px'
-        }}>
-          Praśna<span style={{ color: '#a855f7' }}>.</span>AI
+        <h1 className="text-white text-4xl font-bold mb-2 text-center tracking-tight drop-shadow-[0_0_10px_rgba(168,85,247,0.5)]">
+          Praśna<span className="text-purple-500">.</span>AI
         </h1>
 
-        <p style={{
-          color: 'rgba(255, 255, 255, 0.7)',
-          textAlign: 'center',
-          marginBottom: '32px',
-          fontSize: '1rem',
-          fontWeight: 400
-        }}>
+        <p className="text-white/70 text-center mb-8 text-base font-normal">
           Ask anything about any website
         </p>
 
-        <form onSubmit={handleSubmit} style={{ width: '100%' }}>
-          <div style={{ marginBottom: '20px' }}>
+        <form onSubmit={handleSubmit} className="w-full">
+          <div className="mb-5">
             <input
               name="url"
               placeholder="Paste website link & ask anything..."
               required
-              style={{
-                width: '100%',
-                padding: '16px 20px',
-                borderRadius: '12px',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                color: 'white',
-                fontSize: '1rem',
-                outline: 'none',
-                transition: 'all 0.2s ease',
-                boxSizing: 'border-box',
-                marginBottom: '16px',
-              }}
-              onFocus={(e) => {
-                e.target.style.borderColor = 'rgba(168, 85, 247, 0.5)';
-                e.target.style.boxShadow = '0 0 0 2px rgba(168, 85, 247, 0.2)';
-              }}
-              onBlur={(e) => {
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.target.style.boxShadow = 'none';
-              }}
+              className="w-full px-5 py-4 rounded-xl border border-white/10 bg-white/5 text-white text-base outline-none transition-all duration-200 focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 mb-4"
             />
 
             <textarea
@@ -219,43 +149,12 @@ export default function HomePage() {
               placeholder="Example: What are the key features of this website?"
               required
               rows={4}
-              style={{
-                width: '100%',
-                padding: '16px 20px',
-                borderRadius: '12px',
-                border: '1px solid rgba(255, 255, 255, 0.1)',
-                backgroundColor: 'rgba(255, 255, 255, 0.05)',
-                color: 'white',
-                fontSize: '1rem',
-                outline: 'none',
-                transition: 'all 0.2s ease',
-                resize: 'vertical',
-                minHeight: '120px',
-                boxSizing: 'border-box',
-                fontFamily: 'inherit'
-              }}
-              onFocus={(e) => {
-                e.target.style.borderColor = 'rgba(168, 85, 247, 0.5)';
-                e.target.style.boxShadow = '0 0 0 2px rgba(168, 85, 247, 0.2)';
-              }}
-              onBlur={(e) => {
-                e.target.style.borderColor = 'rgba(255, 255, 255, 0.1)';
-                e.target.style.boxShadow = 'none';
-              }}
+              className="w-full px-5 py-4 rounded-xl border border-white/10 bg-white/5 text-white text-base outline-none transition-all duration-200 focus:border-purple-500/50 focus:ring-2 focus:ring-purple-500/20 resize-y min-h-[120px] font-sans"
             />
           </div>
 
-          <div style={{
-            position: 'relative',
-            width: '100%',
-            borderRadius: '12px',
-            background: 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #2DD4BF 100%)',
-            padding: '2px',
-            boxShadow: '0 4px 20px -5px rgba(139, 92, 246, 0.5)',
-            transform: 'perspective(500px) rotateX(2deg)',
-            transition: 'all 0.3s ease',
-            overflow: 'hidden'
-          }}
+          <div 
+            className="relative w-full rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-teal-400 p-0.5 shadow-[0_4px_20px_-5px_rgba(139,92,246,0.5)] transform perspective-500 rotate-x-1 transition-all duration-300 overflow-hidden hover:rotate-x-2 hover:scale-102 hover:shadow-[0_8px_30px_-5px_rgba(139,92,246,0.7)]"
             onMouseOver={(e) => {
               e.currentTarget.style.transform = 'perspective(500px) rotateX(5deg) scale(1.02)';
               e.currentTarget.style.boxShadow = '0 8px 30px -5px rgba(139, 92, 246, 0.7)';
@@ -267,48 +166,18 @@ export default function HomePage() {
             <button
               type="submit"
               disabled={isSubmitting}
+              className={`w-full p-4 rounded-xl bg-gradient-to-r from-purple-500 via-blue-500 to-teal-400 text-white text-base font-bold tracking-wide border-none cursor-pointer relative overflow-hidden z-10 ${isSubmitting ? 'opacity-70 pointer-events-none' : ''}`}
               style={{
-                width: '100%',
-                padding: '16px',
-                borderRadius: '10px',
-                background: 'linear-gradient(135deg, #8B5CF6 0%, #3B82F6 50%, #2DD4BF 100%)',
-                color: 'white',
-                fontSize: '1rem',
-                fontWeight: 700,
-                letterSpacing: '0.5px',
-                border: 'none',
-                cursor: 'pointer',
-                position: 'relative',
-                overflow: 'hidden',
-                zIndex: 1,
-                opacity: isSubmitting ? 0.7 : 1,
-                pointerEvents: isSubmitting ? 'none' : 'auto',
                 textShadow: '0 1px 2px rgba(0,0,0,0.2)',
                 boxShadow: 'inset 0 4px 15px rgba(255,255,255,0.2), inset 0 -4px 15px rgba(0,0,0,0.2)'
               }}
             >
-              <span style={{
-                position: 'relative',
-                zIndex: 2,
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                gap: '8px'
-              }}>
+              <span className="relative z-10 flex items-center justify-center gap-2">
                 {isSubmitting ? 'Processing...' : 'Reveal →'}
               </span>
               {/* Glossy overlay */}
-              <div style={{
-                position: 'absolute',
-                top: 0,
-                left: '-100%',
-                width: '200%',
-                height: '100%',
-                background: 'linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent)',
-                transform: 'rotate(-30deg)',
-                transition: 'left 0.7s ease-in-out',
-                zIndex: 1
-              }}
+              <div 
+                className="absolute top-0 -left-full w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -rotate-30 transition-all duration-700 ease-in-out z-10 button-shine"
                 onMouseOver={(e) => {
                   e.target.style.left = '100%';
                 }}
@@ -322,41 +191,16 @@ export default function HomePage() {
 
         {/* Task Status */}
         {taskId && (
-          <div style={{
-            marginTop: '32px',
-            padding: '20px',
-            borderRadius: '12px',
-            background: 'rgba(0, 0, 0, 0.2)',
-            border: '1px solid rgba(255, 255, 255, 0.05)'
-          }}>
-            <h3 style={{
-              color: 'white',
-              marginTop: 0,
-              marginBottom: '12px',
-              fontSize: '1rem',
-              fontWeight: 600,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '8px'
-            }}>
-              <span style={{
-                display: 'inline-block',
-                width: '8px',
-                height: '8px',
-                borderRadius: '50%',
-                backgroundColor: taskData?.status === 'completed' ? '#10b981' : '#f59e0b',
-                boxShadow: `0 0 8px ${taskData?.status === 'completed' ? '#10b981' : '#f59e0b'}`
-              }}></span>
+          <div className="mt-8 p-5 rounded-xl bg-black/20 border border-white/5">
+            <h3 className="text-white text-base font-semibold mb-3 flex items-center gap-2">
+              <span 
+                className={`inline-block w-2 h-2 rounded-full ${taskData?.status === 'completed' ? 'bg-emerald-500' : 'bg-amber-500'} shadow-[0_0_8px_${taskData?.status === 'completed' ? '#10b981' : '#f59e0b'}]`}>
+              </span>
               {taskData?.status === 'completed' ? 'Analysis Complete' : 'Analyzing Website...'}
             </h3>
 
             {taskData?.status === 'completed' && (
-              <div style={{
-                color: 'rgba(255, 255, 255, 0.9)',
-                lineHeight: 1.6,
-                fontSize: '0.95rem',
-                whiteSpace: 'pre-line'
-              }}>
+              <div className="text-white/90 leading-relaxed text-[0.95rem] whitespace-pre-line">
                 {taskData.answer}
               </div>
             )}
@@ -365,27 +209,9 @@ export default function HomePage() {
       </div>
 
       {/* Subtle gradient overlay */}
-      <div style={{
-        position: 'fixed',
-        top: 0,
-        left: 0,
-        right: 0,
-        height: '40vh',
-        background: 'radial-gradient(ellipse at top, rgba(124, 58, 237, 0.1) 0%, rgba(0, 0, 0, 0) 70%)',
-        pointerEvents: 'none',
-        zIndex: 0
-      }} />
+      <div className="fixed top-0 left-0 right-0 h-[40vh] bg-radial-gradient(ellipse_at_top,rgba(124,58,237,0.1)_0%,rgba(0,0,0,0)_70%) pointer-events-none z-0" />
 
-      <div style={{
-        position: 'fixed',
-        bottom: 0,
-        left: 0,
-        right: 0,
-        height: '40vh',
-        background: 'radial-gradient(ellipse at bottom, rgba(99, 102, 241, 0.1) 0%, rgba(0, 0, 0, 0) 70%)',
-        pointerEvents: 'none',
-        zIndex: 0
-      }} />
+      <div className="fixed bottom-0 left-0 right-0 h-[40vh] bg-radial-gradient(ellipse_at_bottom,rgba(99,102,241,0.1)_0%,rgba(0,0,0,0)_70%) pointer-events-none z-0" />
     </div >
   );
 }
