@@ -17,7 +17,10 @@ export const useTask = () => {
     queryKey: ['task', taskId],
     queryFn: () => getTaskStatus(taskId as string),
     enabled: !!taskId,
-    refetchInterval: 2000,
+    refetchInterval: (query) => {
+      // Stop polling if the task is completed
+      return query.state.data?.status === 'completed' ? false : 2000;
+    },
   });
 
   const handleSubmit = (data: TaskFormData) => {
