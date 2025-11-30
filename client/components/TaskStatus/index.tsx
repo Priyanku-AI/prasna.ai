@@ -32,7 +32,7 @@ const TaskStatus: React.FC<TaskStatusProps> = ({
           {showLoading ? (
             <>
               <span className="inline-block w-2 h-2 rounded-full bg-amber-500 shadow-[0_0_8px_#f59e0b] animate-pulse" />
-              Processing...
+              Analyzing...
             </>
           ) : showError ? (
             <>
